@@ -1,18 +1,18 @@
 from chat_downloader import ChatDownloader
 import csv
 
-url = 'https://www.youtube.com/watch?v=ZuuyTZ-9gDs&ab_channel=Valkyrae'
+url = 'https://www.youtube.com/watch?v=AEUg6hZc8Bg&ab_channel=fuslie'
 
-csv_file = open('test.csv', 'w', newline='')
+csv_file = open('data/fuslie.csv', 'w', newline='')
 writer = csv.writer(csv_file, delimiter =';')
 
 header = ['Time Stamp', 'Name', 'Message']
 writer.writerow(header)
 
-chat = ChatDownloader().get_chat(url) 
+chat = ChatDownloader().get_chat(url, end_time="00:30:00") 
 
 for message in chat:  
-    # chat.print_formatted(message)         
+           
     time_stamp = message["time_text"]
     author_name = message["author"]["name"]
     message_content = message["message"]
