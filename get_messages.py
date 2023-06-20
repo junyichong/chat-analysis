@@ -1,15 +1,15 @@
 from chat_downloader import ChatDownloader
 import csv
 
-url = 'https://www.youtube.com/watch?v=AEUg6hZc8Bg&ab_channel=fuslie'
+url = 'https://www.twitch.tv/videos/1848867999'
 
-csv_file = open('data/fuslie.csv', 'w', newline='')
+csv_file = open('data/toast.csv', 'w', newline='')
 writer = csv.writer(csv_file, delimiter =';')
 
 header = ['Time Stamp', 'Name', 'Message']
 writer.writerow(header)
 
-chat = ChatDownloader().get_chat(url, end_time="00:30:00") 
+chat = ChatDownloader().get_chat(url, end_time="00:10:00") 
 
 for message in chat:  
            

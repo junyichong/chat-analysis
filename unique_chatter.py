@@ -1,6 +1,6 @@
 import csv
 
-csv_file = 'data/fuslie.csv'  
+csv_file = 'data/toast.csv'  
 
 # Dictionary to store author and message count
 author_message_count = {}  
