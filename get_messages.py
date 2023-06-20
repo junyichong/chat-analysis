@@ -1,10 +1,21 @@
 from chat_downloader import ChatDownloader
 import csv
+import os
 
-url = 'https://www.twitch.tv/videos/1848867999'
+streamer = "toast"
+url = "https://www.twitch.tv/videos/1848867999"
 
-csv_file = open('data/toast.csv', 'w', newline='')
-writer = csv.writer(csv_file, delimiter =';')
+base_filename = f"data/{streamer}.csv"
+suffix = 1
+filename = base_filename
+
+# Check if the file already exists
+while os.path.exists(filename):
+    suffix += 1
+    filename = f"{base_filename.split('.')[0]}_{suffix}.csv"
+
+csv_file = open(filename, "w", newline="")
+writer = csv.writer(csv_file, delimiter =";")
 
 header = ['Time Stamp', 'Name', 'Message']
 writer.writerow(header)
